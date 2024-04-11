@@ -1,4 +1,3 @@
-
 import processing.core.PApplet;
 
 public class Main extends PApplet {
@@ -6,15 +5,41 @@ public class Main extends PApplet {
         PApplet.main("Main");
     }
 
-    public void settings(){
+    int canvasHeight = 500;
+    int canvasWidth = 500;
+
+    public void settings() {
+        size(canvasWidth, canvasHeight);
+    }
+
+    int balloonNum = 2;
+
+    Balloon balloons[] = new Balloon[balloonNum];
+
+    public void setup() {
+        int x = 0;
+        for (int i = 0; i < balloonNum; i++) {
+            balloons[i] = new Balloon(this, x, 'r');
+            balloons[i].setup();
+            x += 100;
+        }
+    }
+
+    public void mousePressed() {
+        for (Balloon b : balloons) {
+            b.pop();
+        }
 
     }
 
-    public void setup(){
 
-    }
+    public void draw() {
+        background(155);
 
-    public void draw(){
+        for (Balloon b : balloons) {
+            b.show();
+            b.updateYPos();
+        }
 
     }
 }
