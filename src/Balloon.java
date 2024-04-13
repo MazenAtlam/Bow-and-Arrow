@@ -37,6 +37,10 @@ public class Balloon {
     public void show() {
         parent.image(balloonImg, xPos, yPos, balloonWidth, balloonHeight);
     }
+    public void showWithBoundryBox() {
+        parent.rect(xPos, yPos, balloonWidth, balloonHeight);
+        parent.image(balloonImg, xPos, yPos, balloonWidth, balloonHeight);
+    }
 
     public double deltaY() {
         double dy = initVelocity + (0.5 * acc); // delta S = Vo * dt + 1/2 a dt^2, dt is always 1
