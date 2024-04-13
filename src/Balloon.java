@@ -2,17 +2,17 @@ import processing.core.PApplet;
 import processing.core.PImage;
 
 public class Balloon {
-    int canvasHeight = 500; // copied the canvas dimesnsion from Main.java till i find a better way to
-    int canvasWidth = 500; // access them without copying
+    int canvasHeight;
+    int canvasWidth;
 
     PApplet parent;
     PImage balloonImg;
     int color;
     int xPos;
     int yPos;
-    int factor = 6; // factor to reduce the balloon image size by
-    int balloonWidth = 302 / factor;
-    int balloonHeight = 488 / factor;
+    static int factor = 6; // factor to reduce the balloon image size by
+    static int width = 302 / factor;
+    static int height = 488 / factor;
     boolean popped = false;
 
     float acc; // pixel/t^2
@@ -22,6 +22,8 @@ public class Balloon {
         this.parent = parent;
         this.xPos = xPos;
         this.color = color;
+        this.canvasHeight = parent.height;
+        this.canvasWidth = parent.width;
         acc = (color == 'y' ? 1 : 0);
     }
 
@@ -35,11 +37,11 @@ public class Balloon {
     }
 
     public void show() {
-        parent.image(balloonImg, xPos, yPos, balloonWidth, balloonHeight);
+        parent.image(balloonImg, xPos, yPos, width, height);
     }
     public void showWithBoundryBox() {
-        parent.rect(xPos, yPos, balloonWidth, balloonHeight);
-        parent.image(balloonImg, xPos, yPos, balloonWidth, balloonHeight);
+        parent.rect(xPos, yPos, width, height);
+        parent.image(balloonImg, xPos, yPos, width, height);
     }
 
     public double deltaY() {
@@ -51,7 +53,7 @@ public class Balloon {
     }
 
     public void updateYPos() {
-        if (yPos >= (-balloonHeight)) {
+        if (yPos >= (-height)) {
             yPos -= deltaY();
         } else {
             yPos = canvasHeight;
@@ -67,6 +69,4 @@ public class Balloon {
         popped = true;
     }
 
-    // public void getWidth()
-    // public void setSize()
 }

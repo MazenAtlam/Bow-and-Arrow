@@ -18,10 +18,11 @@ public class Main extends PApplet {
 
     public void setup() {
         int x = 0;
+        int dx = Balloon.width;
         for (int i = 0; i < balloonNum; i++) {
             balloons[i] = new Balloon(this, x, 'r');
             balloons[i].setup();
-            x += 100;
+            x += (dx+10);
         }
     }
 
