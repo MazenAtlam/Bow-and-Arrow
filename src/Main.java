@@ -38,7 +38,7 @@ public class Main extends PApplet {
         background(155);
 
         for (Balloon b : balloons) {
-            b.showWithBoundryBox();
+            b.showWithBoundaryBox();
             b.updateYPos();
         }
 

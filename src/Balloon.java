@@ -39,7 +39,7 @@ public class Balloon {
     public void show() {
         parent.image(balloonImg, xPos, yPos, width, height);
     }
-    public void showWithBoundryBox() {
+    public void showWithBoundaryBox() {
         parent.rect(xPos, yPos, width, height);
         parent.image(balloonImg, xPos, yPos, width, height);
     }
