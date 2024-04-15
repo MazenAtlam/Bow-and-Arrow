@@ -2,18 +2,18 @@ import processing.core.PApplet;
 import processing.core.PImage;
 
 public class Balloon {
-    int canvasHeight;
     int canvasWidth;
+    private int canvasHeight;
 
-    PApplet parent;
-    PImage balloonImg;
-    int color;
+    private PApplet parent;
+    private PImage balloonImg;
+    private int color;
     int xPos;
     int yPos;
-    static int factor = 8; // factor to reduce the balloon image size by
+    private static int factor = 8; // factor to reduce the balloon image size by
     static int width = 302 / factor;
     static int height = 488 / factor;
-    boolean popped = false;
+    private boolean popped = false;
 
     float acc; // pixel/t^2
     float initVelocity = 1; // pixel/t
@@ -45,7 +45,7 @@ public class Balloon {
     //     parent.image(balloonImg, xPos, yPos, width, height);
     // }
 
-    public double deltaY() {
+    private double deltaY() {
         double dy = initVelocity + (0.5 * acc); // delta S = Vo * dt + 1/2 a dt^2, dt is always 1
         if (popped) {
             dy *= -1;
