@@ -1,12 +1,15 @@
 import processing.core.PApplet;
 
+
 public class Arrow {
     PApplet parent;
     int balloonWidth = Balloon.width;
     int balloonHeight = Balloon.height;
+    public float arrow_x = 100;
+    public float arrow_head_x = arrow_x + 40;
+    public float arrow_head_y;
 
     public Arrow(PApplet parent) {
-
         this.parent = parent;
     }
 
@@ -27,21 +30,21 @@ public class Arrow {
         }
     }
 
-    public float arrow_x = 100;
-    public float arrow_head_x = arrow_x + 40;
-    public float arrow_head_y;
-
-    public void ArrowGo(int k, Balloon balloons[]) {
-        arrow_head_y = k + 43;
-        showAndMove(k);
-
+    public void collisionDetection(Balloon balloons[]) {
         for (Balloon b : balloons) {
             if ((arrow_head_x < (b.xPos + balloonWidth)) && (arrow_head_x > b.xPos)
                     && (arrow_head_y > b.yPos) && (arrow_head_y < (b.yPos + balloonHeight))) {
                 b.pop();
+                Score.score_calc(1);
             }
         }
 
     }
 
+    public void ArrowGo(int k, Balloon balloons[]) {
+        arrow_head_y = k + 43;
+        showAndMove(k);
+        collisionDetection(balloons);
+
+    }
 }

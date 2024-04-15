@@ -5,17 +5,20 @@ PApplet parent;
 public Score(PApplet parent){
     this.parent = parent;
 }
-int Score = 0;
-int highscore;
+static int score = 0;
+static int highscore;
+static int shotBalloons = 0;
 
-public int Score_calc(int remArrows,int shotBallons){
+public static int score_calc(int remArrows){
+    shotBalloons++;
 
-    Score = (remArrows +1)*shotBallons;
-    return Score;
+    score = (remArrows +1)*shotBalloons;
+    System.out.println(score);
+    return score;
 }
-public int Update_highscore(int Score){
-    if (Score>highscore){
-        highscore = Score;
+public static int Update_highscore(int score){
+    if (score>highscore){
+        highscore = score;
     }
     return highscore;
 }
