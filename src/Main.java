@@ -5,27 +5,36 @@ public class Main extends PApplet {
         PApplet.main("Main");
     }
 
-    public void settings(){
-        size(600,600);
+    public void settings() {
+        size(1001, 600);
 
     }
 
-    Balloon b;
+    int balloonsNumber = 15;
+    Balloon balloons[] = new Balloon[balloonsNumber];
     Arrow a;
-    public void setup(){
-        b = new Balloon(this, 500, 'r');
+
+    public void setup() {
         a = new Arrow(this);
-        b.setup();
+        int x = 201;
+        char tmp;
+        for (int i = 0; i < balloonsNumber; i++) {
+            tmp = i%2 == 1 ? 'r':'y';
+
+            balloons[i] = new Balloon(this, x, tmp);
+            balloons[i].setup();
+            x+= (balloons[i].width+5);
+        }
 
     }
 
-    
-    public void draw(){
+    public void draw() {
         background(155);
-        a.moving(mouseY, b);
-        b.show();
-        b.updateYPos();
-
+        a.ArrowGo(mouseY, balloons);
+        for (Balloon b : balloons) {
+            b.show();
+            b.updateYPos();
+        }
 
     }
 }

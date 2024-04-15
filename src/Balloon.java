@@ -10,7 +10,7 @@ public class Balloon {
     int color;
     int xPos;
     int yPos;
-    int factor = 6; // factor to reduce the balloon image size by
+    int factor = 8; // factor to reduce the balloon image size by
     int width = 302 / factor;
     int height = 488 / factor;
     boolean popped = false;

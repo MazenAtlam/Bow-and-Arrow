@@ -8,13 +8,7 @@ public class Arrow {
         this.parent = parent;
     }
 
-    public float arrow_x = 100;
-    public float arrow_head_x = arrow_x + 40;
-    public float arrow_head_y;
-
-    public void moving(int k, Balloon b) {
-        arrow_head_y = k + 43;
-
+    public void showAndMove(int k) {
         parent.ellipse(arrow_x + 3, k + 43, 9, 7);
         parent.fill(150, 0, 0);
         parent.line(arrow_x, k + 43, arrow_x + 40, k + 43);
@@ -29,9 +23,21 @@ public class Arrow {
             arrow_x += 2;
             arrow_head_x += 2;
         }
-        if ((arrow_head_x < (b.xPos + b.width)) && (arrow_head_x > b.xPos)
-                && (arrow_head_y > b.yPos) && (arrow_head_y < (b.yPos + b.height))) {
-            b.pop();
+    }
+
+    public float arrow_x = 100;
+    public float arrow_head_x = arrow_x + 40;
+    public float arrow_head_y;
+
+    public void ArrowGo(int k, Balloon balloons[]) {
+        arrow_head_y = k + 43;
+        showAndMove(k);
+
+        for (Balloon b : balloons) {
+            if ((arrow_head_x < (b.xPos + b.width)) && (arrow_head_x > b.xPos)
+                    && (arrow_head_y > b.yPos) && (arrow_head_y < (b.yPos + b.height))) {
+                b.pop();
+            }
         }
 
     }
