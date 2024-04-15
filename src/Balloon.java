@@ -10,9 +10,9 @@ public class Balloon {
     int color;
     int xPos;
     int yPos;
-    static int factor = 6; // factor to reduce the balloon image size by
-    static int width = 302 / factor;
-    static int height = 488 / factor;
+    int factor = 6; // factor to reduce the balloon image size by
+    int width = 302 / factor;
+    int height = 488 / factor;
     boolean popped = false;
 
     float acc; // pixel/t^2
@@ -39,10 +39,11 @@ public class Balloon {
     public void show() {
         parent.image(balloonImg, xPos, yPos, width, height);
     }
-    public void showWithBoundaryBox() {
-        parent.rect(xPos, yPos, width, height);
-        parent.image(balloonImg, xPos, yPos, width, height);
-    }
+    // public void showDebugging() {
+    //     parent.circle(xPos, yPos, 5);
+    //     parent.circle(xPos, yPos+height, 5);
+    //     parent.image(balloonImg, xPos, yPos, width, height);
+    // }
 
     public double deltaY() {
         double dy = initVelocity + (0.5 * acc); // delta S = Vo * dt + 1/2 a dt^2, dt is always 1

@@ -1,14 +1,19 @@
 import processing.core.PApplet;
 
 public class Arrow {
-    PApplet parent = new PApplet();
-    // public Arrow(PApplet parent){
+    PApplet parent;
 
-    // this.parent = parent;
-    // }
+    public Arrow(PApplet parent) {
+
+        this.parent = parent;
+    }
+
     public float arrow_x = 100;
+    public float arrow_head_x = arrow_x + 40;
+    public float arrow_head_y;
 
     public void moving(int k, Balloon b) {
+        arrow_head_y = k + 43;
 
         parent.ellipse(arrow_x + 3, k + 43, 9, 7);
         parent.fill(150, 0, 0);
@@ -16,8 +21,16 @@ public class Arrow {
         parent.strokeWeight(1.6F);
         parent.line(arrow_x + 35, k + 43, arrow_x + 40, k + 44);
         parent.line(arrow_x + 40, k + 43, arrow_x + 35, k + 44);
-        arrow_x += 2;
-        if (arrow_x == b.xPos && k == b.yPos) {
+        // parent.circle(arrow_head_x, arrow_head_y, 5);
+        if (arrow_x >= parent.width) {
+            arrow_x = 100;
+            arrow_head_x = 140;
+        } else {
+            arrow_x += 2;
+            arrow_head_x += 2;
+        }
+        if ((arrow_head_x < (b.xPos + b.width)) && (arrow_head_x > b.xPos)
+                && (arrow_head_y > b.yPos) && (arrow_head_y < (b.yPos + b.height))) {
             b.pop();
         }
 
