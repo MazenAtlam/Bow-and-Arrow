@@ -16,6 +16,7 @@ public class Main extends PApplet {
 
     public void setup() {
         a = new Arrow(this);
+        int balloonWidth = Balloon.width;
         int x = 201;
         char tmp;
         for (int i = 0; i < balloonsNumber; i++) {
@@ -23,7 +24,7 @@ public class Main extends PApplet {
 
             balloons[i] = new Balloon(this, x, tmp);
             balloons[i].setup();
-            x+= (balloons[i].width+5);
+            x+= (balloonWidth+5);
         }
 
     }

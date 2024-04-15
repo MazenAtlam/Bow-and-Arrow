@@ -2,6 +2,8 @@ import processing.core.PApplet;
 
 public class Arrow {
     PApplet parent;
+    int balloonWidth = Balloon.width;
+    int balloonHeight = Balloon.height;
 
     public Arrow(PApplet parent) {
 
@@ -34,8 +36,8 @@ public class Arrow {
         showAndMove(k);
 
         for (Balloon b : balloons) {
-            if ((arrow_head_x < (b.xPos + b.width)) && (arrow_head_x > b.xPos)
-                    && (arrow_head_y > b.yPos) && (arrow_head_y < (b.yPos + b.height))) {
+            if ((arrow_head_x < (b.xPos + balloonWidth)) && (arrow_head_x > b.xPos)
+                    && (arrow_head_y > b.yPos) && (arrow_head_y < (b.yPos + balloonHeight))) {
                 b.pop();
             }
         }
