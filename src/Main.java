@@ -5,15 +5,37 @@ public class Main extends PApplet {
         PApplet.main("Main");
     }
 
-    public void settings(){
+    public void settings() {
+        size(1001, 600);
 
     }
 
-    public void setup(){
+    int balloonsNumber = 15;
+    Balloon balloons[] = new Balloon[balloonsNumber];
+    Arrow a;
+
+    public void setup() {
+        a = new Arrow(this);
+        int balloonWidth = Balloon.width;
+        int x = 201;
+        char tmp;
+        for (int i = 0; i < balloonsNumber; i++) {
+            tmp = i%2 == 1 ? 'r':'y';
+
+            balloons[i] = new Balloon(this, x, tmp);
+            balloons[i].setup();
+            x+= (balloonWidth+5);
+        }
 
     }
 
-    public void draw(){
+    public void draw() {
+        background(155);
+        a.ArrowGo(mouseY, balloons);
+        for (Balloon b : balloons) {
+            b.show();
+            b.updateYPos();
+        }
 
     }
 }
