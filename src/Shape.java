@@ -1,4 +1,3 @@
-package App;
 import processing.core.PApplet;
 import processing.core.PImage;
 public class Shape {
