@@ -4,11 +4,10 @@ import processing.core.PImage;
 public class Archer extends Shape {
     int mouse_y;
     PImage state1, state2, state3;
-    static int ammo;
-    Arrow[] arrows = new Arrow[20];
     PApplet parent;
+    static int y;
 
-    public Archer(PApplet parent, int x, int y, int length, int width, int ammo) {
+    public Archer(PApplet parent, int x, int y, int length, int width) {
 
         this.parent = parent;
         this.x = x;
@@ -16,7 +15,6 @@ public class Archer extends Shape {
         this.length = length;
         this.width = width;
         this.image = parent.loadImage("../1_deliverables/state1.png");
-        Archer.ammo = ammo;
     }
 
     public int archerYPos(boolean Dragged) {
@@ -48,8 +46,10 @@ public class Archer extends Shape {
         Main.reloaded = false;
         image = state1;
         parent.image(this.image, this.x, this.y, this.length, this.width);
-        Archer.ammo--;
-        System.out.println(ammo);
+        Main.availableArrows++;
+        Main.arrows[Main.ammo-1].ArrowGo(y, Main.balloons);
+        Main.ammo--;
+        System.out.println(Main.ammo);
     }
 
     public void entryMethod() {

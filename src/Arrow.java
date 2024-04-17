@@ -20,14 +20,8 @@ public class Arrow {
         parent.strokeWeight(1.6F);
         parent.line(arrow_x + 35, k + 43, arrow_x + 40, k + 44);
         parent.line(arrow_x + 40, k + 43, arrow_x + 35, k + 44);
-        // parent.circle(arrow_head_x, arrow_head_y, 5);
-        if (arrow_x >= parent.width) {
-            arrow_x = 100;
-            arrow_head_x = 140;
-        } else {
-            arrow_x += 2;
-            arrow_head_x += 2;
-        }
+        arrow_x += 2;
+        arrow_head_x += 2;
     }
 
     public void collisionDetection(Balloon balloons[]) {
