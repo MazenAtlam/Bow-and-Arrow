@@ -5,7 +5,6 @@ public class Archer extends Shape {
     int mouse_y;
     PImage state1, state2, state3;
     PApplet parent;
-    static int y;
 
     public Archer(PApplet parent, int x, int y, int length, int width) {
 
@@ -46,8 +45,8 @@ public class Archer extends Shape {
         Main.reloaded = false;
         image = state1;
         parent.image(this.image, this.x, this.y, this.length, this.width);
+        Main.arrows[Main.availableArrows].arrow_y=this.y;
         Main.availableArrows++;
-        Main.arrows[Main.ammo-1].ArrowGo(y, Main.balloons);
         Main.ammo--;
         System.out.println(Main.ammo);
     }

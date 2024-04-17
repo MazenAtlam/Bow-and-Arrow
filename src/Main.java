@@ -1,5 +1,4 @@
 import processing.core.PApplet;
-import processing.core.PImage;
 
 public class Main extends PApplet {
     static boolean Dragged = false;
@@ -14,7 +13,6 @@ public class Main extends PApplet {
     public void mousePressed() {
         if (mouseButton == LEFT && reloaded) {
             fire = true;
-            arrows[1].ArrowGo(500, balloons);
         } else if (mouseButton == RIGHT) {
             reloaded = true;
         }
@@ -64,8 +62,7 @@ public class Main extends PApplet {
             b.updateYPos();
         }
         for(int i=0; i<availableArrows; i++){
-            arrows[i].ArrowGo(Archer.y, balloons);
-
+            arrows[i].ArrowGo(balloons);
         }
     }
 

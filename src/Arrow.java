@@ -6,6 +6,7 @@ public class Arrow {
     int balloonWidth = Balloon.width;
     int balloonHeight = Balloon.height;
     public float arrow_x = 100;
+    public int arrow_y;
     public float arrow_head_x = arrow_x + 40;
     public float arrow_head_y;
 
@@ -35,9 +36,9 @@ public class Arrow {
 
     }
 
-    public void ArrowGo(int k, Balloon balloons[]) {
-        arrow_head_y = k + 43;
-        showAndMove(k);
+    public void ArrowGo(Balloon balloons[]) {
+        arrow_head_y = arrow_y + 43;
+        showAndMove(arrow_y);
         collisionDetection(balloons);
 
     }
