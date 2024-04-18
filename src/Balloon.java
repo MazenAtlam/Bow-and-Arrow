@@ -10,14 +10,20 @@ public class Balloon {
     private int color;
     int xPos;
     int yPos;
-    private static int factor = 8; // factor to reduce the balloon image size by
+    boolean isPopped=false;
+    private static int factor = 6; // factor to reduce the balloon image size by
     static int width = 302 / factor;
     static int height = 488 / factor;
     private boolean popped = false;
+    private static int poppedBalloon = 0;
 
     float acc; // pixel/t^2
     float initVelocity = 1; // pixel/t
 
+
+    public static int getPoppedBalloon() {
+        return (poppedBalloon);
+    }
     public Balloon(PApplet parent, int xPos, char color) {
         this.parent = parent;
         this.xPos = xPos;
@@ -62,6 +68,9 @@ public class Balloon {
     }
 
     public void pop() {
+        isPopped = true;
+        Balloon.poppedBalloon++;
+        System.out.println(Balloon.poppedBalloon);
         if (color == 'y') {
             balloonImg = parent.loadImage("../1_deliverables/yballoon_popped.png");
         } else {

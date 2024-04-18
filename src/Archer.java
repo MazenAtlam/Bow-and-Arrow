@@ -28,10 +28,10 @@ public class Archer extends Shape {
 
     public void moving(int y) {
 
-        if (y < 70)
-            y = 70;
-        else if (y > 500)
-            y = 500;
+        if (y <= 100)
+            y = 105;
+        else if (y > 900)
+            y = 900;
         parent.image(this.image, this.x, y, this.length, this.width);
         this.y = y;
     }
@@ -48,7 +48,7 @@ public class Archer extends Shape {
         Main.arrows[Main.availableArrows].arrow_y=this.y;
         Main.availableArrows++;
         Main.ammo--;
-        System.out.println(Main.ammo);
+        // System.out.println(Main.ammo);
     }
 
     public void entryMethod() {

@@ -1,6 +1,5 @@
 import processing.core.PApplet;
 
-
 public class Arrow {
     PApplet parent;
     int balloonWidth = Balloon.width;
@@ -29,8 +28,10 @@ public class Arrow {
         for (Balloon b : balloons) {
             if ((arrow_head_x < (b.xPos + balloonWidth)) && (arrow_head_x > b.xPos)
                     && (arrow_head_y > b.yPos) && (arrow_head_y < (b.yPos + balloonHeight))) {
-                b.pop();
-                Score.score_calc(1);
+                if (!b.isPopped) {
+                    b.pop();
+                    Score.score_calc(1);
+                }
             }
         }
 
