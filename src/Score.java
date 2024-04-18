@@ -9,18 +9,17 @@ static int score = 0;
 static int highscore;
 static int shotBalloons = 0;
 
-public static int score_calc(int remArrows){
+public static void score_calc(int remArrows){
     shotBalloons++;
 
-    score = (remArrows +1)*shotBalloons;
-    System.out.println(score);
-    return score;
+    score = (remArrows + 1) * shotBalloons;
+    // System.out.println(score);
 }
-public static int Update_highscore(int score){
+public static void Update_highscore(){
     if (score>highscore){
         highscore = score;
     }
-    return highscore;
+    // return highscore;
 }
 
 }
