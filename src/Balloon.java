@@ -10,7 +10,7 @@ public class Balloon {
     private int color;
     int xPos;
     int yPos;
-    private static int factor = 6; // factor to reduce the balloon image size by
+    private static int factor = 8; // factor to reduce the balloon image size by
     static int width = 302 / factor;
     static int height = 488 / factor;
     boolean popped = false;
@@ -67,9 +67,8 @@ public class Balloon {
     }
 
     public void pop() {
-        popped = true;
         Balloon.poppedBalloon++;
-        System.out.println(Balloon.poppedBalloon);
+
         if (color == 'y') {
             balloonImg = parent.loadImage("../1_deliverables/yballoon_popped.png");
         } else {

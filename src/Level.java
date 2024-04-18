@@ -2,6 +2,7 @@ import processing.core.PApplet;
 
 public class Level {
     public static int level_number = 1; // This Variable is used to show text onscreen
+    public static String[] name = {"Target practice", "More target practice"};
 
     /*
      * level_up - Call This Function When All Balloons are Down To Reset
@@ -16,7 +17,7 @@ public class Level {
             parent.fill(255);
             parent.textSize(38);
             parent.textAlign(parent.CENTER);
-            parent.text("Congratulation !\nYou've Successfully Passed Level 1\n\nReady For Level 2 !\n Here You Go\n\nPress (1) To Continue", parent.width / 2, parent.height / 2);
+            parent.text("Congratulation !\nYou've Successfully Passed Level 1\n\nReady For Level 2 !\n Here You Go\n\nPress (1) To Continue", (parent.width / 2) - 200, (parent.height / 2) - 200);
         }
         else if (Main.ammo == 2 && Main.Win)
         {
@@ -26,7 +27,7 @@ public class Level {
             parent.fill(255);
             parent.textSize(38);
             parent.textAlign(parent.CENTER);
-            parent.text("Congratulation !\nYou've Successfully Win The Game\n\nPress (1) To Start Again OR (0) To Exit", parent.width / 2, parent.height / 2);
+            parent.text("Congratulation !\nYou've Successfully Win The Game\n\nPress (1) To Start Again OR (0) To Exit", (parent.width / 2) - 200, (parent.height / 2) - 200);
             Main.win_level_2 = true;
         }
     }
@@ -39,7 +40,7 @@ public class Level {
             parent.fill(255, 0, 0);
             parent.textSize(38);
             parent.textAlign(parent.CENTER);
-            parent.text("Hard Luck!\n\nPress (1) To Start Again OR (0) To Exit", parent.width / 2, parent.height / 2);
+            parent.text("Hard Luck!\n\nPress (1) To Start Again OR (0) To Exit", (parent.width / 2) - 200, (parent.height / 2) - 200);
         }
     }
 }
