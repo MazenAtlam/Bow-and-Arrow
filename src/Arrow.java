@@ -28,7 +28,7 @@ public class Arrow {
         for (Balloon b : balloons) {
             if ((arrow_head_x < (b.xPos + balloonWidth)) && (arrow_head_x > b.xPos)
                     && (arrow_head_y > b.yPos) && (arrow_head_y < (b.yPos + balloonHeight))) {
-                if (!b.isPopped) {
+                if (!b.popped) {
                     b.pop();
                     Score.score_calc(1);
                 }
