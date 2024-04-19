@@ -9,10 +9,10 @@ static int score = 0;
 static int highscore;
 static int shotBalloons = 0;
 
-public static void score_calc(int remArrows){
+public static void score_calc(){
     shotBalloons++;
 
-    score = (remArrows + 1) * shotBalloons;
+    score = (Main.ammo + 1) * shotBalloons;
     // System.out.println(score);
 }
 public static void Update_highscore(){

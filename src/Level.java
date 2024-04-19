@@ -2,6 +2,7 @@ import processing.core.PApplet;
 
 public class Level {
     public static int level_number = 1; // This Variable is used to show text onscreen
+    public static String[] name = {"Target practice", "More target practice"};
 
     /*
      * level_up - Call This Function When All Balloons are Down To Reset
