@@ -23,7 +23,7 @@ public class Balloon {
     public static int getPoppedBalloon() {
         return (poppedBalloon);
     }
-    public Balloon(PApplet parent, int xPos, char color) {
+    public Balloon(PApplet parent, int xPos, int yPos, char color) {
         this.parent = parent;
         this.xPos = xPos;
         this.color = color;

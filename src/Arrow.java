@@ -31,6 +31,7 @@ public class Arrow {
                 if (!b.popped) {
                     b.pop();
                     Score.score_calc(1);
+                    System.out.println(Score.score);
                 }
             }
         }
