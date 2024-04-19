@@ -6,7 +6,7 @@ public class Archer extends Shape {
     PImage state1, state2, state3;
     PApplet parent;
 
-    public Archer(PApplet parent, int x, int y, int width, int length) {
+    public Archer(PApplet parent, int x, int y, int length, int width) {
 
         this.parent = parent;
         this.x = x;
@@ -23,6 +23,7 @@ public class Archer extends Shape {
             }
         }
         return mouse_y;
+
     }
 
     public void moving(int y) {
@@ -31,29 +32,30 @@ public class Archer extends Shape {
             y = 105;
         else if (y > 900)
             y = 900;
-            parent.image(this.image, this.x, y, this.width, this.length);
+        parent.image(this.image, this.x, this.y, this.length, this.width);
         this.y = y;
     }
 
     public void reloading() {
         image = state3;
-        parent.image(this.image, this.x, this.y, this.width, this.length);
+        parent.image(this.image, this.x, this.y, this.length, this.width);
     }
 
     public void firing() {
         Main.reloaded = false;
         image = state1;
-        parent.image(this.image, this.x, this.y, this.width, this.length);
+        parent.image(this.image, this.x, this.y, this.length, this.width);
         Main.arrows[Main.availableArrows].arrow_y=this.y;
         Main.availableArrows++;
         Main.ammo--;
+        // System.out.println(Main.ammo);
     }
 
     public void entryMethod() {
         if (Main.reloaded) {
             reloading();
         }
-        if (Main.fire && parent.mouseX > width && parent.mousePressed) {
+        if (Main.fire) {
             firing();
             Main.fire = false;
         }
@@ -68,4 +70,15 @@ public class Archer extends Shape {
         state2 = parent.loadImage("../1_deliverables/state2.png");
         state3 = parent.loadImage("../1_deliverables/state3.png");
     }
+
+    // @Override
+    // public void mouseDragged() {
+    // Dragged = true;
+    // }
+    // @Override
+    // public void mouseReleased() {
+    // if (parent.mouseButton == parent.LEFT)
+    // Dragged = false;
+    // }
+
 }

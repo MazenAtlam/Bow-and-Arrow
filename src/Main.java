@@ -101,12 +101,12 @@ public class Main extends PApplet {
     public void setup() {
         frameRate(60);
         smooth();
-        archer = new Archer(this, 10, 500, 120, 150);
+        archer = new Archer(this, 10, 500, 190, 140);
         archer.setup();
         for(int i = 0; i < ammo; i++) {
             arrows[i] = new Arrow(this);
         }
-            int x = width - (Balloon.width + 390);
+            int x = width - (Balloon.width + 100);
             if (!Win)
             {
                 for (int i = 0; i<15; i++) {
