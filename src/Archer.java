@@ -53,7 +53,7 @@ public class Archer extends Shape {
         if (Main.reloaded) {
             reloading();
         }
-        if (Main.fire) {
+        if (Main.fire && parent.mouseX > width && parent.mousePressed) {
             firing();
             Main.fire = false;
         }

@@ -15,8 +15,8 @@ public class Arrow {
     }
 
     public void showAndMove(int k) {
+        parent.fill(255, 0, 0);
         parent.ellipse(arrow_x + 3, k + y_delay, 9, 7);
-        parent.fill(150, 0, 0);
         parent.line(arrow_x, k + y_delay, arrow_x + 40, k + y_delay);
         parent.strokeWeight(1.6F);
         parent.line(arrow_x + 35, k + y_delay, arrow_x + 40, k + y_delay + 1);
@@ -31,7 +31,7 @@ public class Arrow {
                     && (arrow_head_y > b.yPos) && (arrow_head_y < (b.yPos + balloonHeight))) {
                 if (!b.popped) {
                     b.pop();
-                    Score.score_calc(1);
+                    Score.score_calc();
                 }
             }
         }
