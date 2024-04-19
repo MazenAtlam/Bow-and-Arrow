@@ -23,10 +23,14 @@ public class Balloon {
     public static int getPoppedBalloon() {
         return (poppedBalloon);
     }
-    public Balloon(PApplet parent, int xPos, char color) {
+    public static void setPoppedBalloon(int resetPoppedBalloon) {
+            poppedBalloon = resetPoppedBalloon;
+    }
+    public Balloon(PApplet parent, int xPos, int yPos, char color) {
         this.parent = parent;
         this.xPos = xPos;
         this.color = color;
+        this.yPos = yPos;
         this.canvasHeight = parent.height;
         this.canvasWidth = parent.width;
         acc = (color == 'y' ? 1 : 0);
@@ -38,7 +42,6 @@ public class Balloon {
         } else {
             balloonImg = parent.loadImage("../1_deliverables/balloon.png");
         }
-        yPos = canvasHeight;
     }
 
     public void show() {
@@ -69,7 +72,6 @@ public class Balloon {
     public void pop() {
         popped = true;
         Balloon.poppedBalloon++;
-        System.out.println(Balloon.poppedBalloon);
         if (color == 'y') {
             balloonImg = parent.loadImage("../1_deliverables/yballoon_popped.png");
         } else {

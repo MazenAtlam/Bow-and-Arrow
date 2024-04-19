@@ -10,6 +10,6 @@ public class U_I {
         parent.text("High Score: " + Score.highscore, 15, 80);
         parent.text("Level " + Level.level_number, parent.width / 2 - 75, 25);
         parent.text("Available Arrows: " + Main.ammo, 1650, 80);
-        Level.hard_luck(parent);
+        Level.gameLogic(parent);
     }
 }

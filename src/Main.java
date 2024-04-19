@@ -6,38 +6,21 @@ public class Main extends PApplet {
     static boolean fire = false;
     static boolean flag = false;
     static boolean Win = false;
-    static boolean win_level_2 = false;
     static boolean win_level_1 = false;
     static Balloon balloons[] = new Balloon[15];
     static int ammo = 20;
     static int availableArrows = 0;
     static Arrow[] arrows = new Arrow[ammo];
 
-
-    public void restartGame() {
-         Dragged = false;
-         reloaded = false;
-         fire = false;
-         flag = false;
-    //   lost = false;
-         Win = false;
-        ammo = 20;
-        Level.level_number = 1;
-        availableArrows = 0;
-        Score.score = 0;
-        Score.shotBalloons = 0;
-        String[] args = {""};
-        main(args);
-    }
     public static void level_up() {
         Dragged = false;
         reloaded = false;
         fire = false;
         flag = false;
-        // lost = false;
         Win = true;
        ammo = 20;
        win_level_1 = false;
+       Balloon.setPoppedBalloon(0);
        Level.level_number = 2;
        availableArrows = 0;
        Score.score = 0;
@@ -45,32 +28,51 @@ public class Main extends PApplet {
        String[] args = {""};
        main(args);
    }
+
+    public void restartGame() {
+        flag = false;
+        Dragged = false;
+        reloaded = false;
+        fire = false;
+        Win = false;
+        ammo = 20;
+        win_level_1 = false;
+        Level.level_number = 1;
+        availableArrows = 0;
+        Score.score = 0;
+        Balloon.setPoppedBalloon(0);
+        Score.shotBalloons = 0;
+        String[] args = { "" };
+        main(args);
+    }
+
     @Override
     public void keyPressed() {
         if (flag)
         {
-            if (key == '1')
+            if (win_level_1 && key == '\n')
             {
-                if (win_level_1)
-                {
-                    level_up();
-                }
-                else
-                {
-                    restartGame();
-                }
+                level_up();
             }
-            else if (key == '0')
-                exit();
+            else if (!win_level_1)
+            {
+                if (key == '1')
+                    restartGame();
+                else if(key == '0')
+                    exit();
+            }
         }
     }
 
     @Override
     public void mousePressed() {
-        if (mouseButton == LEFT && reloaded) {
-            fire = true;
-        } else if (mouseButton == RIGHT) {
-            reloaded = true;
+        if (ammo != 0)
+        {
+            if (mouseButton == LEFT && reloaded) {
+                fire = true;
+            } else if (mouseButton == RIGHT) {
+                reloaded = true;
+            }
         }
     }
 
@@ -92,7 +94,7 @@ public class Main extends PApplet {
     Archer archer;
 
     public void settings() {
-        size(960, 540);
+        size(1920, 1080);
 
     }
 
@@ -108,7 +110,7 @@ public class Main extends PApplet {
             if (!Win)
             {
                 for (int i = 0; i<15; i++) {
-                    balloons[i] = new Balloon(this, x, 'r');
+                    balloons[i] = new Balloon(this, x, height, 'r');
                     balloons[i].setup();
                     x -= Balloon.width + 5;
                 }
@@ -117,13 +119,13 @@ public class Main extends PApplet {
             {
                 for (int i = 0; i < 12; i++)
                 {
-                    balloons[i] = new Balloon(this, x, 'r');
+                    balloons[i] = new Balloon(this, x, (int)random(height, height + random(70)), 'r');
                     balloons[i].setup();
                     x -= Balloon.width + 5;
                 }
                 for (int i = 12; i < 15; i++)
                 {
-                    balloons[i] = new Balloon(this, x, 'y');
+                    balloons[i] = new Balloon(this, x, (int)random(height, height + random(70)), 'y');
                     balloons[i].setup();
                     x  = (int) random(x, (width - (Balloon.width + 50)));
                 }
@@ -140,7 +142,7 @@ public class Main extends PApplet {
                 b.show();
                 b.updateYPos();
             }
-            for(int i=0; i<availableArrows; i++){
+            for(int i = 0; i < availableArrows; i++){
                 arrows[i].ArrowGo(balloons);
             }
         }
