@@ -30,8 +30,8 @@ public class Archer extends Shape {
 
         if (y <= 100)
             y = 105;
-        else if (y > 900)
-            y = 900;
+        else if (y > 700)
+            y = 700;
         parent.image(this.image, this.x, this.y, this.width, this.length);
         this.y = y;
     }

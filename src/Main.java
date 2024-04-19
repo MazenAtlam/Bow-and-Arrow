@@ -23,7 +23,6 @@ public class Main extends PApplet {
        Balloon.setPoppedBalloon(0);
        Level.level_number = 2;
        availableArrows = 0;
-       Score.score = 0;
        Score.shotBalloons = 0;
        String[] args = {""};
        main(args);
@@ -42,7 +41,7 @@ public class Main extends PApplet {
         Score.score = 0;
         Balloon.setPoppedBalloon(0);
         Score.shotBalloons = 0;
-        String[] args = { "" };
+        String[] args = {""};
         main(args);
     }
 
