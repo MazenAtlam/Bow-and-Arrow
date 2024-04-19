@@ -9,7 +9,7 @@ public class Level {
      * this values and proceed to next level
      */
     public static void gameLogic(PApplet parent) {
-        if (Main.arrows[19].arrow_head_x == parent.width && Balloon.getPoppedBalloon() != 15)
+        if (Main.arrows[19].arrow_head_x >= parent.width && Balloon.getPoppedBalloon() != 15)
         {
             Main.flag = true;
 

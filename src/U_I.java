@@ -10,9 +10,9 @@ public class U_I {
         parent.text("Score: " + Score.score, 15, 45);
         parent.text("High Score: " + Score.highscore, 15, 80);
         parent.textAlign(parent.CENTER);
-        parent.text("Level " + Level.level_number + "\n" + Level.name[Level.level_number - 1], parent.width / 2 - 75, 25);
+        parent.text("Level " + Level.level_number + "\n" + Level.name[Level.level_number - 1], parent.width / 2, 25);
         parent.textAlign(parent.RIGHT);
-        parent.text("Available Arrows: " + Main.ammo, parent.width - 400, 80);
+        parent.text("Available Arrows: " + Main.ammo, parent.width - 25, 80);
         Level.gameLogic(parent);
     }
 }

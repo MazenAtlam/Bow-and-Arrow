@@ -94,7 +94,7 @@ public class Main extends PApplet {
     Archer archer;
 
     public void settings() {
-        size(1920, 1080);
+        fullScreen(0);
 
     }
 
@@ -106,7 +106,7 @@ public class Main extends PApplet {
         for(int i = 0; i < ammo; i++) {
             arrows[i] = new Arrow(this);
         }
-            int x = width - (Balloon.width + 390);
+            int x = width - (Balloon.width + 25);
             if (!Win)
             {
                 for (int i = 0; i<15; i++) {
@@ -119,15 +119,15 @@ public class Main extends PApplet {
             {
                 for (int i = 0; i < 12; i++)
                 {
-                    balloons[i] = new Balloon(this, x, (int)random(height, height + random(70)), 'r');
+                    balloons[i] = new Balloon(this, x, (int)random(height, height + random(250)), 'r');
                     balloons[i].setup();
                     x -= Balloon.width + 5;
                 }
                 for (int i = 12; i < 15; i++)
                 {
-                    balloons[i] = new Balloon(this, x, (int)random(height, height + random(70)), 'y');
+                    balloons[i] = new Balloon(this, x, (int)random(height, height + random(250)), 'y');
                     balloons[i].setup();
-                    x  = (int) random(x, (width - (Balloon.width + 50)));
+                    x  = (int) random(x, (width - (Balloon.width + 100)));
                 }
             }
     }

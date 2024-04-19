@@ -28,11 +28,12 @@ public class Arrow {
     public void collisionDetection(Balloon balloons[]) {
         for (Balloon b : balloons) {
             if ((arrow_head_x < (b.xPos + balloonWidth)) && (arrow_head_x > b.xPos)
-                    && (arrow_head_y > b.yPos) && (arrow_head_y < (b.yPos + balloonHeight))) {
-                if (!b.popped) {
+                    && (arrow_head_y > b.yPos) && (arrow_head_y < (b.yPos + balloonHeight)))
+            {
+                if (!b.popped)
+                {
                     b.pop();
                     Score.score_calc();
-                    System.out.println(Score.score);
                 }
             }
         }
