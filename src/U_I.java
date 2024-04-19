@@ -5,8 +5,8 @@ public class U_I {
         parent.fill(150); // Gray Colour Panel
         parent.rect(0, 0, parent.width, 100); // Panel Is in Shape Of Rectangle
         parent.fill(0); // Text To Be Written in Black
-        parent.textSize(22); // Size Of The Text
         parent.textAlign(parent.LEFT);
+        parent.textSize(22); // Size Of The Text
         parent.text("Score: " + Score.score, 15, 45);
         parent.text("High Score: " + Score.highscore, 15, 80);
         parent.textAlign(parent.CENTER);

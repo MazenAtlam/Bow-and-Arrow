@@ -70,8 +70,8 @@ public class Balloon {
     }
 
     public void pop() {
+        popped = true;
         Balloon.poppedBalloon++;
-
         if (color == 'y') {
             balloonImg = parent.loadImage("../1_deliverables/yballoon_popped.png");
         } else {

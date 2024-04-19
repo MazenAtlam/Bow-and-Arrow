@@ -1,5 +1,6 @@
 import processing.core.PApplet;
 
+
 public class Arrow {
     PApplet parent;
     int balloonWidth = Balloon.width;
@@ -9,7 +10,6 @@ public class Arrow {
     public float arrow_head_x = arrow_x + 40;
     public float arrow_head_y;
     public int y_delay = 60;
-
     public Arrow(PApplet parent) {
         this.parent = parent;
     }
@@ -34,6 +34,7 @@ public class Arrow {
                 {
                     b.pop();
                     Score.score_calc();
+                    System.out.println(Score.score);
                 }
             }
         }
