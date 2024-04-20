@@ -1,7 +1,6 @@
 import processing.core.PApplet;
 public class U_I {
     public static void show_user_interface(PApplet parent) {
-        parent.background(0, 165, 0); // Setting Green Colour Of Game Background
         parent.fill(150); // Gray Colour Panel
         parent.rect(0, 0, parent.width, 100); // Panel Is in Shape Of Rectangle
         parent.fill(0); // Text To Be Written in Black
