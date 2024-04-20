@@ -7,12 +7,13 @@ public class Main extends PApplet {
     static boolean flag = false;
     static boolean Win = false;
     static boolean win_level_1 = false;
+    static boolean win_level_2 = false;
     static Balloon balloons[] = new Balloon[15];
     static int ammo = 20;
     static int availableArrows = 0;
     static Arrow[] arrows = new Arrow[ammo];
 
-    public static void level_up() {
+    public void level_up() {
         Dragged = false;
         reloaded = false;
         fire = false;
@@ -23,9 +24,10 @@ public class Main extends PApplet {
         Balloon.setPoppedBalloon(0);
         Level.level_number = 2;
         availableArrows = 0;
+        Score.level1_score = Score.score;
         Score.shotBalloons = 0;
-        String[] args = { "" };
-        main(args);
+        settings();
+        setup();
     }
 
     public void restartGame() {
@@ -39,18 +41,28 @@ public class Main extends PApplet {
         Level.level_number = 1;
         availableArrows = 0;
         Score.score = 0;
+        Score.level1_score = 0;
         Balloon.setPoppedBalloon(0);
         Score.shotBalloons = 0;
-        String[] args = { "" };
-        main(args);
+        settings();
+        setup();
     }
 
     @Override
     public void keyPressed() {
         if (flag) {
-            if (win_level_1 && key == '\n') {
-                level_up();
-            } else if (!win_level_1) {
+            if (!win_level_1) {
+                if (key == '1')
+                    restartGame();
+                else if (key == '0')
+                    exit();
+            }
+            else if(!win_level_2) {
+                if (key == '1')
+                    level_up();
+                else if (key == '0')
+                    exit();
+            } else {
                 if (key == '1')
                     restartGame();
                 else if (key == '0')
