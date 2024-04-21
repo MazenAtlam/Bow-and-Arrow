@@ -1,4 +1,5 @@
 import processing.core.PApplet;
+import processing.core.PConstants;
 import processing.core.PImage;
 
 public class Archer extends Shape {
@@ -17,7 +18,7 @@ public class Archer extends Shape {
     }
 
     public int archerYPos(boolean Dragged) {
-        if (parent.mousePressed && parent.mouseButton == parent.LEFT) {
+        if (parent.mousePressed && parent.mouseButton == PConstants.LEFT) {
             if (Dragged && parent.mouseX >= this.x && parent.mouseX <= (this.x + this.width)) {
                 mouse_y = parent.mouseY;
             }
@@ -48,7 +49,6 @@ public class Archer extends Shape {
         Main.arrows[Main.availableArrows].arrow_y=this.y;
         Main.availableArrows++;
         Main.ammo--;
-        // System.out.println(Main.ammo);
     }
 
     public void entryMethod() {
@@ -60,7 +60,7 @@ public class Archer extends Shape {
             Main.fire = false;
         }
         moving(archerYPos(Main.Dragged));
-        if (parent.mousePressed && (parent.mouseButton == parent.LEFT)) {
+        if (parent.mousePressed && (parent.mouseButton == PConstants.LEFT)) {
             Main.Dragged = true;
         }
     }
@@ -70,15 +70,4 @@ public class Archer extends Shape {
         state2 = parent.loadImage("../1_deliverables/state2.png");
         state3 = parent.loadImage("../1_deliverables/state3.png");
     }
-
-    // @Override
-    // public void mouseDragged() {
-    // Dragged = true;
-    // }
-    // @Override
-    // public void mouseReleased() {
-    // if (parent.mouseButton == parent.LEFT)
-    // Dragged = false;
-    // }
-
 }

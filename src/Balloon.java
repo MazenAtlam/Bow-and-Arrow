@@ -47,11 +47,6 @@ public class Balloon {
     public void show() {
         parent.image(balloonImg, xPos, yPos, width, height);
     }
-    // public void showDebugging() {
-    //     parent.circle(xPos, yPos, 5);
-    //     parent.circle(xPos, yPos+height, 5);
-    //     parent.image(balloonImg, xPos, yPos, width, height);
-    // }
 
     private double deltaY() {
         double dy = initVelocity + (0.5 * acc); // delta S = Vo * dt + 1/2 a dt^2, dt is always 1

@@ -1,4 +1,5 @@
 import processing.core.PApplet;
+import processing.core.PConstants;
 
 public class Level {
     public static int level_number = 1; // This Variable is used to show text onscreen
@@ -17,7 +18,7 @@ public class Level {
             parent.background(0, 165, 0);
             parent.fill(255, 0, 0);
             parent.textSize(38);
-            parent.textAlign(parent.CENTER);
+            parent.textAlign(PConstants.CENTER);
             parent.text("Hard Luck!\n\nPress (1) To Start Again OR (0) To Exit", parent.width / 2, parent.height / 2);
         }
         else if (Balloon.getPoppedBalloon() == 15)
@@ -31,7 +32,7 @@ public class Level {
                 parent.background(0, 165, 0);
                 parent.fill(255);
                 parent.textSize(38);
-                parent.textAlign(parent.CENTER);
+                parent.textAlign(PConstants.CENTER);
                 parent.text("Congratulation !\nYou've Successfully Passed Level 1\n\nReady For Level 2 !\n Here You Go\n\nPress (1) To Continue OR (0) To Exit", parent.width / 2, parent.height / 2);
             }
             else
@@ -40,7 +41,7 @@ public class Level {
                 parent.background(0, 165, 0);
                 parent.fill(255, 215, 0);
                 parent.textSize(38);
-                parent.textAlign(parent.CENTER);
+                parent.textAlign(PConstants.CENTER);
                 parent.text("Congratulation !\nYou've Successfully Win The Game\n\nPress (1) To Start Again OR (0) To Exit", parent.width / 2, parent.height / 2);
             }
         }

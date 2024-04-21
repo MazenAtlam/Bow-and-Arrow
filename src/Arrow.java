@@ -34,7 +34,6 @@ public class Arrow {
                 {
                     b.pop();
                     Score.score_calc();
-                    // System.out.println(Score.score);
                 }
             }
         }

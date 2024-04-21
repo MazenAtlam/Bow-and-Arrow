@@ -17,7 +17,6 @@ and arrow, challenging players with precision and accuracy.
 - [`UML class diagram`](#uml-class-diagram)
 - [`The Team`](#the-team)
 
-
 ## Game Controls
 
 The game uses the mouse only to do actions:
@@ -27,7 +26,6 @@ The game uses the mouse only to do actions:
 |Mouse left click and drag|Control the vertical placement of the archer|
 |Right click|Reload your arrow|
 |Left click|Fire the arrow|
-
 
 ## Game Levels
 
@@ -45,7 +43,6 @@ You start each level with a quiver of 20 arrows.
 
 - You start each level with a quiver of 20 arrows.
 
-
 ## Balloon Dynamics
 
 1. **Red Balloons:**
@@ -56,14 +53,12 @@ You start each level with a quiver of 20 arrows.
 
 ![balloon-dynamics](./1_deliverables/game3.jpg)
 
-
 ## Scoring System
 
 - Score = (Remaining Arrows + 1) * Number of Shot Balloons.
 - The score accumulates each turn, reflecting your skill and accuracy.
 - Progress to the next level upon successfully hitting all the balloons
     in the current level.
-
 
 ## Game Strategy
 
@@ -73,16 +68,16 @@ You start each level with a quiver of 20 arrows.
 
 ![game-strategy](./1_deliverables/game1.jpg)
 
-
 ## UML class diagram
 
 ![UML class diagram](./documentation/UML_class_diagram.jpg)
 
-
 ## The Team
 
-<b>Name:</b> Elgamma
-<b>Members and their roles:</b>
+**Name:** Elgamma
+
+**Members and their roles:**
+
 1. Mazen Atef Awad Atlam
     - Project management
     - Create README.md page
@@ -107,9 +102,4 @@ You start each level with a quiver of 20 arrows.
     - Merging classes
     - Help other members in coding
 
-
-<br>
-<br>
-<div align="center">
-  <b>Have Fun and Aim True!</b>
-</div>
+**<div align="center">Have Fun and Aim True!</div>**
